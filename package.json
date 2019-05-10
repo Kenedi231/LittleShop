@@ -1,0 +1,33 @@
+{
+  "name": "myshop",
+  "version": "1.0.0",
+  "description": "My little shop",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/server.js"
+  },
+  "keywords": [
+    "Shop"
+  ],
+  "author": "Kalsin Kolya",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "cross-env": "^5.2.0",
+    "css-loader": "^2.1.1",
+    "express": "^4.16.4",
+    "http": "0.0.0",
+    "less": "^3.9.0",
+    "less-loader": "^5.0.0",
+    "mongoose": "^5.5.7",
+    "path": "^0.12.7",
+    "webpack": "^4.31.0",
+    "webpack-cli": "^3.3.2",
+    "webpack-dev-middleware": "^3.6.2",
+    "webpack-hot-middleware": "^2.24.4"
+  }
+}
