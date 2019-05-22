@@ -1,0 +1,88 @@
+@main-color: #3f51b5;
+@inactive-color: #9e9e9e;
+
+.form {
+    margin-top: 30px;
+    position: relative;
+    .inputForm {
+        position: relative;
+        .inputText {
+            background-color: #eee;
+            width: 250px;
+            height: 30px;
+            margin-top: 25px;
+            border: none;
+            border-bottom: 1px solid @inactive-color;
+            outline: none;
+            padding: 0 0 3px 5px;
+            position: relative;
+            &:focus {
+                border-bottom: 2px solid @main-color;
+                padding-bottom: 2px;
+                &+.inputLabel {
+                    color: @main-color;
+                    font-size: 0.9em;
+                    left: 30%;
+                    bottom: 33px;
+                }
+            }
+            &:not(:invalid):not(:focus){
+                border-bottom: 1px solid @main-color;
+                padding-bottom: 3px;
+                &+.inputLabel{
+                    color: @inactive-color;
+                    font-size: 0.9em;
+                    left: 30%;
+                    bottom: 33px;
+                }
+            }
+        }
+        .inputLabel {
+            position: absolute;
+            color: @inactive-color;
+            left: 32%;
+            bottom: 12.5px;
+            font-size: 1em;
+            transition: 0.3s;
+            cursor: text;
+        }
+    }
+    .button {
+        width: 252px;
+        cursor: pointer;
+        margin-top: 25px;
+        padding: 10px 0;
+        color: @main-color;
+        background-color: Transparent;
+        background-repeat: no-repeat;
+        border: 1px solid @inactive-color;
+        overflow: hidden;
+        &:disabled {
+            border: 1px solid @inactive-color;
+            cursor: not-allowed;
+            color: @inactive-color;
+        }
+        &:hover:not(:disabled) {
+            background-color: @main-color;
+            border: 1px solid @main-color;
+            color: #fff;
+        }
+    }
+}
+
+.switcher {
+    display: flex;
+    cursor: pointer;
+    justify-content: center;
+    flex-direction: row;
+    p {
+        padding: 15px 50px;
+        color: black;
+        border-bottom: 1px solid #9e9e9e;
+    }
+    .active {
+        padding-bottom: 14px;
+        border-bottom: 2px solid #3f51b5;
+        color: #3f51b5;
+    }
+}

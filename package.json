@@ -4,7 +4,9 @@
   "description": "My little shop",
   "main": "index.js",
   "scripts": {
-    "start": "node server/server.js"
+    "start": "cross-env NODE_ENV=development nodemon server/server.js --watch server",
+    "build": "webpack --config=webpack.config.js --colors",
+    "prod": "npm run build && cross-env NODE_ENV=production node server/server.js"
   },
   "keywords": [
     "Shop"
@@ -17,14 +19,27 @@
     "@babel/preset-env": "^7.4.4",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.4",
     "cross-env": "^5.2.0",
     "css-loader": "^2.1.1",
     "express": "^4.16.4",
+    "express-fileupload": "^1.1.4",
     "http": "0.0.0",
+    "jsonwebtoken": "^8.5.1",
     "less": "^3.9.0",
     "less-loader": "^5.0.0",
+    "loaders.css": "^0.1.2",
     "mongoose": "^5.5.7",
     "path": "^0.12.7",
+    "react": "^16.8.6",
+    "react-document-title": "^2.0.3",
+    "react-dom": "^16.8.6",
+    "react-loader-spinner": "^2.3.0",
+    "react-loaders": "^3.0.1",
+    "react-router-dom": "^5.0.0",
+    "style-loader": "^0.23.1",
     "webpack": "^4.31.0",
     "webpack-cli": "^3.3.2",
     "webpack-dev-middleware": "^3.6.2",
