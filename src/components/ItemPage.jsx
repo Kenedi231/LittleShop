@@ -4,6 +4,7 @@ import getItem from "../services/item/request/getItem";
 import DocumentTitle from 'react-document-title';
 import NotFound from "./NotFound";
 import style from '../styles/itemPage.less';
+import addItemToCart from "../services/item/request/addItemToCart";
 
 export default class ItemPage extends Component {
     constructor(props) {
@@ -29,12 +30,24 @@ export default class ItemPage extends Component {
         this.setState({loading: false});
     };
 
+    button = () => {
+        addItemToCart(this.state.item.number)
+            .then(res => {
+                if (res.code) {
+                    alert(res.message);
+                }
+                location.reload();
+            })
+            .catch(err => {
+                alert(err);
+            });
+    };
+
     render() {
         const {loading, item} = this.state;
         const {user} = this.props;
         if (loading) return (<h1>Loading...</h1>);
         if (item === null) return (<NotFound />);
-        console.log(item);
         return (
             <DocumentTitle title={`MyShop | ${item.name}`}>
                 <div>
@@ -44,7 +57,7 @@ export default class ItemPage extends Component {
                         <img src={item.image} alt={item.name} />
                         <div className={style.price}>
                             <span>{`${item.price}$`}</span>
-                            {user.role !== undefined ? <button>Add in the cart</button> : <p>Log in to add to cart</p>}
+                            {user.role !== undefined ? <button onClick={this.button}>Add in the cart</button> : <p>Log in to add to cart</p>}
                         </div>
                         <p>{item.Description}</p>
                     </div>

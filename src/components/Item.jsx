@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import style from '../styles/item.less';
 import {Link} from 'react-router-dom'
+import addItemToCart from '../services/item/request/addItemToCart';
 
 export default class Item extends Component {
     constructor(props) {
@@ -9,7 +10,16 @@ export default class Item extends Component {
     }
 
     button = () => {
-        alert('hi');
+        addItemToCart(this.props.item.number)
+            .then(res => {
+                if (res.code) {
+                    alert(res.message);
+                }
+                location.reload();
+            })
+            .catch(err => {
+                alert(err);
+            });
     };
 
     render() {
